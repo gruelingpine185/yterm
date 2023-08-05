@@ -2,7 +2,7 @@
 #include "util.h"
 #include "textScreen.h"
 
-Cell NewCell(char ch, uint8_t fg, uint8_t bg, uint16_t attr) {
+Cell NewCell(uint8_t ch, uint8_t fg, uint8_t bg, uint16_t attr) {
 	Cell ret;
 	ret.ch        = ch;
 	ret.attr.fg   = fg;
@@ -11,7 +11,7 @@ Cell NewCell(char ch, uint8_t fg, uint8_t bg, uint16_t attr) {
 	return ret;
 }
 
-Cell CellByCharacter(char ch) {
+Cell CellByCharacter(uint8_t ch) {
 	return NewCell(ch, 0, 0, ATTR_NONE);
 }
 
@@ -74,7 +74,7 @@ void TextScreen_ScrollDown(TextScreen* text, int lines) {
 	}
 }
 
-void TextScreen_PutCharacter(TextScreen* text, char ch) {
+void TextScreen_PutCharacter(TextScreen* text, uint8_t ch) {
 	switch (ch) {
 		case '\n': {
 			++ text->cursor.y;

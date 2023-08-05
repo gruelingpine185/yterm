@@ -56,12 +56,12 @@ typedef struct AttrInfo {
 } AttrInfo;
 
 typedef struct Cell {
-	char     ch;
+	uint8_t     ch;
 	AttrInfo attr;
 } Cell;
 
-Cell     NewCell(char ch, uint8_t fg, uint8_t bg, uint16_t attr);
-Cell     CellByCharacter(char ch);
+Cell     NewCell(uint8_t ch, uint8_t fg, uint8_t bg, uint16_t attr);
+Cell     CellByCharacter(uint8_t ch);
 AttrInfo NewAttr(uint8_t fg, uint8_t bg, uint16_t attr);
 
 typedef struct TextScreen {
@@ -77,7 +77,7 @@ void       TextScreen_Free(TextScreen* text);
 Cell       TextScreen_GetCharacter(TextScreen* text, int x, int y);
 void       TextScreen_SetCharacter(TextScreen* text, int x, int y, Cell cell);
 void       TextScreen_ScrollDown(TextScreen* text, int lines);
-void       TextScreen_PutCharacter(TextScreen* text, char ch);
+void       TextScreen_PutCharacter(TextScreen* text, uint8_t ch);
 void       TextScreen_PutString(TextScreen* text, char* str);
 void       TextScreen_Resize(TextScreen* text, Vec2 newSize);
 void       TextScreen_Render(TextScreen* text, Video* video);
