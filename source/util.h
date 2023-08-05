@@ -11,5 +11,6 @@ bool      StringStartsWith(char* str, char* with);
 bool      StringIsNumeric(char* str);
 char*     DupString(char* str);
 SDL_Color HexToColour(uint32_t colour);
+int       PositionToOffset(int x, int y, int width);
 
 #endif

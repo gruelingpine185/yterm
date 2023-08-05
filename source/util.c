@@ -48,3 +48,7 @@ SDL_Color HexToColour(uint32_t colour) {
 		255
 	};
 }
+
+int PositionToOffset(int x, int y, int width) {
+	return (y * width) + x;
+}

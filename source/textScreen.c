@@ -41,7 +41,7 @@ void TextScreen_Free(TextScreen* text) {
 }
 
 Cell TextScreen_GetCharacter(TextScreen* text, int x, int y) {
-	return text->cells[(y * text->size.x) + x];
+	return text->cells[PositionToOffset(x, y, text->size.x)];
 }
 
 void TextScreen_SetCharacter(TextScreen* text, int x, int y, Cell cell) {
@@ -54,7 +54,7 @@ void TextScreen_SetCharacter(TextScreen* text, int x, int y, Cell cell) {
 		return;
 	}
 
-	text->cells[(y * text->size.x) + x] = cell;
+	text->cells[PositionToOffset(x, y, text->size.x)] = cell;
 }
 
 void TextScreen_ScrollDown(TextScreen* text, int lines) {
